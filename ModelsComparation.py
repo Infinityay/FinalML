@@ -109,7 +109,7 @@ def logistic(scaled_predictors, target, penalized: bool, k: int):
 
     # 定义超参数搜索空间
     param_distributions = {
-        'C': np.logspace(-3, 3, num=20),
+        'C': np.logspace(-3, 3, num=30),
         'penalty': ['l1', 'l2'],
         'solver': ['liblinear', 'saga']
     }
@@ -149,6 +149,7 @@ def decision_tree(scaled_predictors, target, k):
         'min_samples_split': [2, 5, 10],
         'min_samples_leaf': [1, 2, 4],
         'max_leaf_nodes': [None, 5, 10, 20],
+        'criterion': ['gini', 'entropy', 'log_loss']
     }
 
     # 在搜索空间内寻找最佳超参数
